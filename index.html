@@ -9,6 +9,14 @@
     <title>TO DO List App</title>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	<style type="text/css" media="screen">
+		
+		.blue {
+			/* config. proper hex values... */
+			background-color: blue;
+		}
+
+	</style>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script>
@@ -88,7 +96,8 @@
 				<tbody>
 					<tr ng-repeat="item in todo.items">
 						<td>{{item.action}}</td>
-						<td><input type="checkbox"  /></td>
+						<!--  -->
+						<td><input type="checkbox" ng-model="item.done" /></td>
 						<td>{{item.done}}</td>
 					</tr>
 					<!-- demonstrate the behavior of the directive... -->
@@ -104,6 +113,17 @@
 	</div>
 
 	</div>
+
+	<script>
+
+		$(function() {
+
+			// jQuery()...
+			$('#jquery-sample-element-access').addClass('blue');
+		
+		});
+
+	</script>
 
 </body>
 </html>
