@@ -9,6 +9,7 @@
     <title>TO DO List App</title>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script>
 
@@ -57,6 +58,9 @@
 	<!-- TO DO List Template -->
 	<!-- keep angular where you want it in the html document -->
 	<!-- could be data-ng-app, also -->
+	
+	<div id="jquery-sample-element-access">
+
 	<div class="container" ng-app="todoApp" ng-controller="ToDoCtrl">
 		
 		<div class="page-header">
@@ -84,6 +88,7 @@
 				<tbody>
 					<tr ng-repeat="item in todo.items">
 						<td>{{item.action}}</td>
+						<td><input type="checkbox"  /></td>
 						<td>{{item.done}}</td>
 					</tr>
 					<!-- demonstrate the behavior of the directive... -->
@@ -95,6 +100,8 @@
 			</table>
 	
 		</div>
+
+	</div>
 
 	</div>
 
