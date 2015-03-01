@@ -1,0 +1,1 @@
+config = "figure out how to get angularjs in here without utilizing require() from nodejs"

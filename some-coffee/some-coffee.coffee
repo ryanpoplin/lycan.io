@@ -4,3 +4,5 @@ anotherList =
 	age: 24
 	happy: false 
 	faith: false
+	testMethod: (x) ->
+		x * x

@@ -7,5 +7,8 @@ anotherList = {
   name: "Ryan Poplin",
   age: 24,
   happy: false,
-  faith: false
+  faith: false,
+  testMethod: function(x) {
+    return x * x;
+  }
 };
