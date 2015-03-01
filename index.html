@@ -27,7 +27,9 @@
 
     	// storing, retrieving, general CRUD, RESTful connections for persistance, etc...
 
-    	//  MODEL object...
+    	//  MODEL...
+    	// Logic around our data...
+    	// Most likely in with a REST API...
     	var model = {
     		user: 'Ryan Poplin',
     		items: [{
@@ -39,6 +41,7 @@
     		}]
     	};
 
+    	// CONTROLLER...
     	// classic Ctrl convention...
     	// $ === built in service feature of angular, an jQuery(), must be used as a result...
     	todoApp.controller("ToDoCtrl", function ($scope) {
@@ -69,6 +72,8 @@
 	
 	<div id="jquery-sample-element-access">
 
+	<!-- VIEW... -->
+	<!-- Check directive options... -->
 	<div class="container" ng-app="todoApp" ng-controller="ToDoCtrl">
 		
 		<div class="page-header">
@@ -121,7 +126,7 @@
 			// jQuery()...
 			// $('#jquery-sample-element-access').addClass('blue');
 		
-			console.log('...');
+			// console.log('...');
 
 		});
 
