@@ -1,0 +1,11 @@
+- JADE
+- via command-line, run: jade -w random.jade
+- it will compile a file called random.html, and watch changes made to the .jade file...
+
+- STYLUS
+- via command-line, run: stylus -c/-w random.styl
+- it will compile a file called random.css...
+
+- COFFEESCRIPT
+- via command-line, run: coffee -w random.coffee
+- it will compile a file called random.js...
