@@ -1,37 +1,21 @@
-<!-- just one index.html file, and interchange JS files for templates, etc... -->
-<!-- make decision on HAML, SASS, and CoffeeScript usage... -->
-<!-- get a decent understanding of the API usage...  -->
 <!doctype html>
-<!-- ... -->
 <html>
 <head> 
-	<!--<title>AngularJS...</title>-->
     <title>TO DO List App</title>
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 	<style type="text/css" media="screen">
 		
 		.blue {
-			/* config. proper hex values... */
 			background-color: blue;
 		}
 
 	</style>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="angular.js"></script>
-    <script>
+ 	<script>
 
-    	// AngularJS Module...
-    	// sample angular module with an array of other modules needed for the app...
-    	var todoApp = angular.module("todoApp", []);
-
-    	// storing, retrieving, general CRUD, RESTful connections for persistance, etc...
-
-    	//  MODEL...
-    	// Logic around our data...
-    	// Most likely in with a REST API...
-    	var model = {
+    	var model = {	
     		user: 'Ryan Poplin',
     		items: [{
     			action: "Buy Vitamins and Minerals",
@@ -45,15 +29,34 @@
     		}]
     	};
 
-    	// CONTROLLER...
-    	// classic Ctrl convention...
-    	// $ === built in service feature of angular, an jQuery(), must be used as a result...
+    	var todoApp = angular.module("todoApp", []);
+
     	todoApp.controller("ToDoCtrl", function ($scope) {
-
-    		// $scope will access, control, and determine what data my views will...
-    		// have access to based on certain conditions...
-
+    		
     		$scope.todo = model;
+
+    		$scope.incompleteCount = function () {
+
+    			var count = 0;
+
+    			angular.forEach($scope.todo.items, function (item) {
+
+    				// if it's false...
+    				if (!item.done) {
+    					count += 1;
+    				}
+
+    			});
+
+    			return count;
+
+    		};
+
+    		$scope.warningLevel = function () {
+
+    			return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
+
+    		};
 
     	});
 
@@ -71,18 +74,14 @@
 	</div> -->
 
 	<!-- TO DO List Template -->
-	<!-- keep angular where you want it in the html document -->
-	<!-- could be data-ng-app, also -->
 	
 	<div id="jquery-sample-element-access">
 
-	<!-- VIEW... -->
-	<!-- Check directive options... -->
 	<div class="container" ng-app="todoApp" ng-controller="ToDoCtrl">
 		
 		<div class="page-header">
 			
-			<h1>{{todo.user}}'s TO DO List <span class="label label-default">{{todo.items.length}}</span></h1>
+			<h1>{{todo.user}}'s TO DO List <span class="label label-default" ng-class="warningLevel()" ng-hide="incompleteCount() === 0">{{incompleteCount()}}</span></h1>
 		
 		</div>
 	
@@ -105,15 +104,9 @@
 				<tbody>
 					<tr ng-repeat="item in todo.items">
 						<td>{{item.action}}</td>
-						<!--  -->
 						<td><input type="checkbox" ng-model="item.done" /></td>
 						<td>{{item.done}}</td>
 					</tr>
-					<!-- demonstrate the behavior of the directive... -->
-					<!--<tr>
-						<td>...</td>
-						<td>...</td>
-					</tr>-->
 				</tbody>
 			</table>
 	
@@ -127,11 +120,8 @@
 
 		$(function() {
 
-			// jQuery()...
 			// $('#jquery-sample-element-access').addClass('blue');
 		
-			// console.log('...');
-
 		});
 
 	</script>
